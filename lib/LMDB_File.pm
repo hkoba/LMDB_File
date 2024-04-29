@@ -534,6 +534,11 @@ sub UTF8 {
     _mydbflags($txn->_env, $dbi, 2, @_);
 }
 
+END {
+  undef %LMDB::Env::Envs;
+  undef %LMDB::Txn::Txns;
+}
+
 1;
 __END__
 
